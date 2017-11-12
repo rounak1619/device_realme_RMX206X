@@ -61,6 +61,7 @@ PRODUCT_PACKAGES += \
 # Common init scripts
 PRODUCT_PACKAGES += \
     init.qcom.rc \
+    init.safailnet.rc \
     init.devicesetting.rc
 
 # Display
