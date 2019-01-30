@@ -145,6 +145,7 @@ TARGET_COPY_OUT_VENDOR := vendor
 BUILD_WITHOUT_VENDOR := true
 
 # Power
+TARGET_USES_INTERACTION_BOOST := true
 TARGET_TAP_TO_WAKE_NODE := "/proc/touchpanel/double_tap_enable"
 
 # Recovery
@@ -170,9 +171,6 @@ BOARD_PLAT_PUBLIC_SEPOLICY_DIR += \
     device/qcom/sepolicy/qva/public
 
 SELINUX_IGNORE_NEVERALLOWS := true
-
-# Power
-TARGET_USES_INTERACTION_BOOST := true
 
 # Treble
 BOARD_VNDK_VERSION := current
