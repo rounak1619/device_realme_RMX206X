@@ -163,7 +163,6 @@ TARGET_COPY_OUT_VENDOR := vendor
 BUILD_WITHOUT_VENDOR := true
 
 # Power
-TARGET_USES_NON_LEGACY_POWERHAL := true
 TARGET_USES_INTERACTION_BOOST := true
 TARGET_TAP_TO_WAKE_NODE := "/proc/touchpanel/double_tap_enable"
 
