@@ -44,6 +44,12 @@ PRODUCT_DEFAULT_PROPERTY_OVERRIDES += ro.surface_flinger.use_content_detection_f
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += ro.surface_flinger.protected_contents=true
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += ro.surface_flinger.refresh_rate_switching=true
 
+# Set display color mode to Adaptive by default
+PRODUCT_PROPERTY_OVERRIDES += \
+    persist.sys.sf.color_saturation=1.0 \
+    persist.sys.sf.native_mode=2 \
+    persist.sys.sf.color_mode=9
+
 # Properties
 -include $(LOCAL_PATH)/vendor_props.mk
 -include $(LOCAL_PATH)/product_prop.mk
