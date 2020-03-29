@@ -37,5 +37,6 @@ def OTA_InstallEnd(info):
   info.script.Print("dtbo image flash done")
   info.script.Print("Flashing disabled vbmeta image...")
   AddImage(info, "vbmeta.img", "/dev/block/bootdevice/by-name/vbmeta")
+  AddImage(info, "vbmeta_system.img", "/dev/block/bootdevice/by-name/vbmeta_system")
   info.script.Print("vbmeta image flash done")
   return
