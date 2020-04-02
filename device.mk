@@ -60,9 +60,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     init.qcom.rc
 
-PRODUCT_PACKAGES += \
-    fstab.qcom
-
 # Display
 PRODUCT_PACKAGES += \
     libdisplayconfig \
@@ -73,6 +70,14 @@ PRODUCT_PACKAGES += \
 # Doze
 PRODUCT_PACKAGES += \
     RealmeDoze
+
+# fastbootd
+PRODUCT_PACKAGES += \
+    fastbootd
+
+# fstab
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/rootdir/etc/fstab.qcom:$(TARGET_COPY_OUT_RAMDISK)/fstab.qcom
 
 # Fingerprint
 PRODUCT_PACKAGES += \
