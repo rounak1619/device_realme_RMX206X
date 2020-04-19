@@ -58,6 +58,8 @@ PRODUCT_PACKAGES += \
 
 # Common init scripts
 PRODUCT_PACKAGES += \
+    setup_logical.sh \
+    init.recovery.qcom.rc \
     init.qcom.rc
 
 # Display
