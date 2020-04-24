@@ -193,6 +193,10 @@ PRODUCT_PACKAGES += \
 PRODUCT_PACKAGES += \
     lineage.trust@1.0-service
 
+# WiFi
+PRODUCT_PACKAGES += \
+    WifiOverlay
+
 # WiFi Display
 PRODUCT_PACKAGES += \
     libnl
