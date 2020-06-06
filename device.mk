@@ -46,7 +46,7 @@ PRODUCT_PACKAGES += \
     tinymix
 
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/audio/audio_policy_configuration.xml:system/etc/audio_policy_configuration.xml
+    $(LOCAL_PATH)/audio/audio_policy_configuration.xml:$(TARGET_COPY_OUT_PRODUCT)/vendor_overlay/$(PRODUCT_TARGET_VNDK_VERSION)/etc/audio_policy_configuration.xml
 
 # Bluetooth
 PRODUCT_PACKAGES += \
@@ -112,7 +112,7 @@ PRODUCT_COPY_FILES += \
 
 # TEMP-HOSTPAD
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/hostapd:system/bin/hw/hostapd
+    $(LOCAL_PATH)/configs/hostapd:$(TARGET_COPY_OUT_PRODUCT)/vendor_overlay/$(PRODUCT_TARGET_VNDK_VERSION)/bin/hw/hostapd
 
 # IMS
 PRODUCT_PACKAGES += \
@@ -141,7 +141,7 @@ PRODUCT_PACKAGES += \
 
 # Power
 PRODUCT_PACKAGES += \
-    android.hardware.power@1.2-service
+    android.hardware.power@1.2-service.rmx206x
 
 # QTI
 PRODUCT_COPY_FILES += \
