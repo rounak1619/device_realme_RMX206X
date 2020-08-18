@@ -7,16 +7,21 @@
 # Inherit from those products. Most specific first.
 $(call inherit-product, $(SRC_TARGET_DIR)/product/core_64_bit.mk)
 $(call inherit-product, $(SRC_TARGET_DIR)/product/full_base_telephony.mk)
-$(call inherit-product, $(SRC_TARGET_DIR)/product/product_launched_with_p.mk)
 
 # Enable updating of APEXes
 $(call inherit-product, $(SRC_TARGET_DIR)/product/updatable_apex.mk)
 
 # Get non-open-source specific aspects
-$(call inherit-product, vendor/realme/X2/X2-vendor.mk)
+$(call inherit-product, vendor/realme/RMX206X/RMX206X-vendor.mk)
+
+PRODUCT_BUILD_SUPER_PARTITION := false
+PRODUCT_SHIPPING_API_LEVEL := 29
+PRODUCT_TARGET_VNDK_VERSION := 29
+PRODUCT_USE_DYNAMIC_PARTITIONS := true
+PRODUCT_COMPATIBLE_PROPERTY_OVERRIDE := true
 
 # Boot animation
-TARGET_SCREEN_HEIGHT := 2340
+TARGET_SCREEN_HEIGHT := 2400
 TARGET_SCREEN_WIDTH := 1080
 
 # Overlays
@@ -73,17 +78,12 @@ PRODUCT_PACKAGES += \
 
 # Fingerprint
 PRODUCT_PACKAGES += \
-    android.hardware.biometrics.fingerprint@2.1-service.x2 \
-    lineage.biometrics.fingerprint.inscreen@1.0-service.x2 \
+    android.hardware.biometrics.fingerprint@2.1-service.rmx206x \
     vendor.oppo.hardware.biometrics.fingerprint@2.1
 
 # Fingerprint
 PRODUCT_COPY_FILES += \
     frameworks/native/data/etc/android.hardware.fingerprint.xml:system/etc/permissions/android.hardware.fingerprint.xml
-
-# Lineage Specific perms
-PRODUCT_COPY_FILES += \
-    vendor/lineage/config/permissions/vendor.lineage.biometrics.fingerprint.inscreen.xml:system/etc/permissions/vendor.lineage.biometrics.fingerprint.inscreen.xml
 
 # HIDL
 PRODUCT_PACKAGES += \
@@ -144,7 +144,7 @@ PRODUCT_COPY_FILES += \
 
 # Sensors Hal
 PRODUCT_PACKAGES += \
-    android.hardware.sensors@1.0-impl.x2
+    android.hardware.sensors@1.0-impl.rmx206x
 
 # Sensors
 PRODUCT_COPY_FILES += \
@@ -192,7 +192,7 @@ PRODUCT_BOOT_JARS += \
 
 # Lights
 PRODUCT_PACKAGES += \
-    android.hardware.light@2.0-service.x2
+    android.hardware.light@2.0-service.rmx206x
 
 # RCS
 PRODUCT_PACKAGES += \
@@ -202,7 +202,7 @@ PRODUCT_PACKAGES += \
 
 # Touch
 PRODUCT_PACKAGES += \
-    lineage.touch@1.0-service.x2
+    lineage.touch@1.0-service.rmx206x
 
 # Optimizations
 PRODUCT_DEXPREOPT_SPEED_APPS += SystemUI

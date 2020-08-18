@@ -1,7 +1,7 @@
 cc_binary {
-    name: "android.hardware.biometrics.fingerprint@2.1-service.x2",
+    name: "android.hardware.biometrics.fingerprint@2.1-service.rmx206x",
     defaults: ["hidl_defaults"],
-    init_rc: ["android.hardware.biometrics.fingerprint@2.1-service.x2.rc"],
+    init_rc: ["android.hardware.biometrics.fingerprint@2.1-service.rmx206x.rc"],
     relative_install_path: "hw",
     srcs: [
         "BiometricsFingerprint.cpp",

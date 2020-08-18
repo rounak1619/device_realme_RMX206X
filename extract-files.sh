@@ -7,7 +7,7 @@
 
 set -e
 
-DEVICE=X2
+DEVICE=RMX206X
 VENDOR=realme
 
 # Load extract_utils and do some sanity checks

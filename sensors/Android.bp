@@ -1,5 +1,5 @@
 cc_library_shared {
-    name: "android.hardware.sensors@1.0-impl.x2",
+    name: "android.hardware.sensors@1.0-impl.rmx206x",
     defaults: ["hidl_defaults"],
     relative_install_path: "hw",
     srcs: ["Sensors.cpp"],
@@ -15,12 +15,12 @@ cc_library_shared {
     ],
     static_libs: [
         "android.hardware.sensors@1.0-convert",
-        "multihal_x2",
+        "multihal_rmx206x",
     ],
 }
 
 cc_library_static {
-    name: "multihal_x2",
+    name: "multihal_rmx206x",
     srcs: [
         "multihal.cpp",
         "SensorEventQueue.cpp",
