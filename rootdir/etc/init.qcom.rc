@@ -1,5 +1,8 @@
 import /system/etc/init/init.safailnet.rc
 
+on init
+    mount none /system/etc/fstab.qcom /vendor/etc/fstab.qcom bind
+
 on post-fs-data
     #Hack until we build the vendor
     mount none /dev/null /vendor/lib/hw/lights.sm6150.so bind
@@ -16,4 +19,3 @@ service vendor.imsdatadaemon /vendor/bin/imsdatadaemon
     user radio
     socket ims_datad stream 0660 system radio
     group radio wifi inet vendor_qti_diag log
-    disabled
