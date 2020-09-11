@@ -687,7 +687,7 @@
     <string name="config_mainBuiltInDisplayCutout">M -544,0 L -544,108 L -287,108 L -287,0 Z</string>
 
     <!-- Height of the status bar -->
-    <dimen name="status_bar_height_portrait">32dp</dimen>
+    <dimen name="status_bar_height_portrait">36dp</dimen>
     <dimen name="status_bar_height_landscape">32dp</dimen>
 
     <!-- Radius of the software rounded corners at the top of the display in its natural
