@@ -58,7 +58,8 @@ PRODUCT_PACKAGES += \
 
 # Common init scripts
 PRODUCT_PACKAGES += \
-    init.qcom.rc
+    init.qcom.rc \
+    init.devicesetting.rc
 
 # Display
 PRODUCT_PACKAGES += \
@@ -69,6 +70,7 @@ PRODUCT_PACKAGES += \
 
 # Doze
 PRODUCT_PACKAGES += \
+    devicesettings \
     RealmeDoze
 
 # fastbootd
