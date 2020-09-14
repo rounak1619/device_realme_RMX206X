@@ -70,8 +70,8 @@ PRODUCT_PACKAGES += \
 
 # Doze
 PRODUCT_PACKAGES += \
-    devicesettings \
-    RealmeDoze
+    RealmeParts \
+    devicesettings
 
 # fastbootd
 PRODUCT_PACKAGES += \
