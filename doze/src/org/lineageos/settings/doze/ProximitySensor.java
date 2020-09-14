@@ -33,6 +33,9 @@ public class ProximitySensor implements SensorEventListener {
     private static final boolean DEBUG = false;
     private static final String TAG = "ProximitySensor";
 
+    // Maximum time for the hand to cover the sensor: 0.6s
+    private static final int HANDWAVE_MAX_DELTA_NS = 600 * 1000 * 1000;
+
     // Minimum time until the device is considered to have been in the pocket: 1.2s
     private static final int POCKET_MIN_DELTA_NS = 1200 * 1000 * 1000;
 
@@ -71,8 +74,11 @@ public class ProximitySensor implements SensorEventListener {
     private boolean shouldPulse(long timestamp) {
         long delta = timestamp - mInPocketTime;
 
-        if (DozeUtils.isPocketGestureEnabled(mContext)) {
+        if (DozeUtils.isHandwaveGestureEnabled(mContext) &&
+                DozeUtils.isPocketGestureEnabled(mContext)) {
             return true;
+        } else if (DozeUtils.isHandwaveGestureEnabled(mContext)) {
+            return delta < HANDWAVE_MAX_DELTA_NS;
         } else if (DozeUtils.isPocketGestureEnabled(mContext)) {
             return delta >= POCKET_MIN_DELTA_NS;
         }
