@@ -15,4 +15,4 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/lineage_RMX206X.mk
+    $(LOCAL_DIR)/aosp_RMX206X.mk
