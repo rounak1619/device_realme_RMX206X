@@ -15,9 +15,9 @@
 //
 
 cc_library_static {
-    name: "libinit_x2",
+    name: "libinit_rmx206x",
     recovery_available: true,
-    srcs: ["x2.cpp"],
+    srcs: ["init_rmx206x.cpp"],
     include_dirs: [
         "system/core/base/include",
         "system/core/init"

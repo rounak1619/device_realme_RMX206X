@@ -16,17 +16,7 @@ $(call inherit-product, vendor/aosp/config/common_full_phone.mk)
 PRODUCT_NAME := aosp_RMX206X
 PRODUCT_DEVICE := RMX206X
 PRODUCT_BRAND := realme
-PRODUCT_MODEL := realme 6 pro
+PRODUCT_MODEL := realme 6 Pro
 PRODUCT_MANUFACTURER := realme
 
-PRODUCT_BUILD_PROP_OVERRIDES += \
-    PRIVATE_BUILD_DISC="coral-user 10 RP1A.200720.009 6720564 release-keys"
-
-BUILD_FINGERPRINT := "google/coral/coral:11/RP1A.200720.009/6720564:user/release-keys"
-
-PRODUCT_BUILD_PROP_OVERRIDES += \
-    PRODUCT_NAME="RMX206X" \
-    PRODUCT_DEVICE="RMX206X" \
-    PRODUCT_MODEL="RMX206X"
-
-PRODUCT_GMS_CLIENTID_BASE := android-realme 
+PRODUCT_GMS_CLIENTID_BASE := android-oppo
