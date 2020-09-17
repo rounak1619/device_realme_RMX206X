@@ -855,7 +855,7 @@
     <!-- When true use the linux /dev/input/event subsystem to detect the switch changes
          on the headphone/microphone jack. When false use the older uevent framework. -->
     <bool name="config_useDevInputEventForAudioJack">true</bool>
-    <bool name="config_switch_phone_on_voice_reg_state_change">true</bool>
+    <bool name="config_switch_phone_on_voice_reg_state_change">false</bool>
     <bool name="config_swipe_up_gesture_setting_available">true</bool>
 
     <!-- ComponentName of a dream to show whenever the system would otherwise have
@@ -871,7 +871,7 @@
 
     <!-- If true, the doze component is not started until after the screen has been
          turned off and the screen off animation has been performed. -->
-    <bool name="config_dozeAfterScreenOffByDefault">false</bool>
+    <bool name="config_dozeAfterScreenOffByDefault">true</bool>
 
     <!-- Control whether the always on display mode is available. This should only be enabled on
          devices where the display has been tuned to be power efficient in DOZE and/or DOZE_SUSPEND
@@ -925,7 +925,7 @@
 
          Refer to power.h for details.
     -->
-    <bool name="config_powerDecoupleInteractiveModeFromDisplay">true</bool>
+    <bool name="config_powerDecoupleInteractiveModeFromDisplay">false</bool>
     <integer name="config_maximumScreenDimDuration">18000</integer>
 
     <!-- Screen brightness used to dim the screen while dozing in a very low power state.
@@ -1146,7 +1146,4 @@
          running in WAL mode.
          Choices are: FULL, NORMAL, OFF. -->
     <string name="db_wal_sync_mode">OFF</string>
-
-    <!-- Whether device has screen with higher aspect ratio -->
-    <bool name="config_haveHigherAspectRatioScreen">true</bool>
 </resources>
