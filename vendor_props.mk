@@ -63,7 +63,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
     ro.surface_flinger.protected_contents=true \
     ro.vendor.display.ad=1 \
     ro.vendor.display.sensortype=2 \
-    ro.vendor.display.ad.sdr_calib_data=/vendor/etc/OPPO_OLED_AD_calib.cfg
+    ro.vendor.display.ad.sdr_calib_data=/vendor/etc/OPPO_OLED_AD_calib.cfg \
+    ro.vendor.display.svi=1 \
+    vendor.display.svi.config=1 \
+    vendor.display.svi.config_path=/vendor/etc/svi_config.xml
 
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
    ro.surface_flinger.vsync_event_phase_offset_ns=2000000 \
@@ -96,7 +99,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Netflix custom property
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.netflix.bsp_rev=Q6150-17263-1
+    ro.netflix.bsp_rev=Q6250-19132-1
 
 # Perf
 PRODUCT_PROPERTY_OVERRIDES += \
