@@ -45,6 +45,7 @@ PRODUCT_DEFAULT_PROPERTY_OVERRIDES += ro.surface_flinger.protected_contents=true
 
 # Properties
 -include $(LOCAL_PATH)/vendor_props.mk
+-include $(LOCAL_PATH)/product_prop.mk
 
 # Screen density
 PRODUCT_AAPT_CONFIG := normal
