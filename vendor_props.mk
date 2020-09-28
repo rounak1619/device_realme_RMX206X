@@ -71,10 +71,11 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += \
    ro.surface_flinger.vsync_event_phase_offset_ns=2000000 \
    ro.surface_flinger.vsync_sf_event_phase_offset_ns=6000000 \
-   debug.sf.early_phase_offset_ns=500000 \
-   debug.sf.early_app_phase_offset_ns=500000 \
+   debug.sf.early_phase_offset_ns=11600000 \
+   debug.sf.early_app_phase_offset_ns=11600000 \
    debug.sf.early_gl_phase_offset_ns=3000000 \
-   debug.sf.early_gl_app_phase_offset_ns=15000000
+   debug.sf.early_gl_app_phase_offset_ns=15000000 \
+   debug.sf.phase_offset_threshold_for_next_vsync_ns=11600000
 
 # Fingerprint
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -101,10 +102,12 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.netflix.bsp_rev=Q6250-19132-1
 
-# Perf
+# Nfc
 PRODUCT_PROPERTY_OVERRIDES += \
-    ro.vendor.qti.core_ctl_min_cpu=4 \
-    ro.vendor.qti.core_ctl_max_cpu=6
+    ro.nfc.port=I2C \
+    persist.nfc.smartcard.recorder.enable=true \
+    persist.sys.nfc.disPowerSave=1 \
+    ro.camera.notify_nfc=1
 
 # RCS and IMS
 PRODUCT_PROPERTY_OVERRIDES += \
@@ -142,11 +145,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Sensors
 PRODUCT_PROPERTY_OVERRIDES += \
-    persist.vendor.sensors.enable.mag_filter=true \
-    ro.display.underscreen.lightsensor.support=1 \
-    ro.lcd.display.screen.underlightsensor.region=624,28,672,76 \
-    persist.sys.oppo.fusionlight=true \
-    persist.sys.oppo.proximity=true \
     ro.qti.sensors.wu=false
 
 # SSR
