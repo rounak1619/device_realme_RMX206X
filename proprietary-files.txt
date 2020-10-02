@@ -9,6 +9,12 @@ lib/vendor.oppo.hardware.ktv@1.0.so
 # Alarm
 -product/app/PowerOffAlarm/PowerOffAlarm.apk
 
+# ANT+
+-lib/libantradio.so
+-lib64/libantradio.so
+product/lib/com.qualcomm.qti.ant@1.0.so
+product/lib64/com.qualcomm.qti.ant@1.0.so
+
 # Bluetooth
 lib64/libbtconfigstore.so
 lib/libbtconfigstore.so
