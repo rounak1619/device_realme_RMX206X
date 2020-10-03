@@ -88,4 +88,9 @@ void vendor_load_properties()
     // fingerprint
     property_override("ro.build.description", "coral-user 10 RP1A.200720.009 6720564 release-keys");
     property_override_prop("ro.build.fingerprint", "google/coral/coral:11/RP1A.200720.009/6720564:user/release-keys");
+   
+   // Evo Official 
+    property_override("org.evolution.build_donate_url", "https://www.paypal.me/sg4778");
+    property_override("org.evolution.build_maintainer", "Sukrut4778");
+    property_override("org.evolution.build_support_url", "https://t.me/EvolutionXRMX206X");
 }

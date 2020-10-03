@@ -6,7 +6,8 @@
 
 $(call inherit-product, device/realme/RMX206X/device.mk)
 
-# Inherit some common PE stuff.
+# Inherit some common Evolution X stuff.
+CUSTOM_BUILD_TYPE := OFFICIAL
 TARGET_BOOT_ANIMATION_RES := 1080
 TARGET_GAPPS_ARCH := arm64
 TARGET_INCLUDE_STOCK_ARCORE := true
