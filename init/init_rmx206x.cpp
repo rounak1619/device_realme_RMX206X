@@ -38,8 +38,6 @@
 #include "property_service.h"
 #include "vendor_init.h"
 
-using android::init::property_set;
-
 std::vector<std::string> ro_props_default_source_order = {
     "",
     "odm.",
