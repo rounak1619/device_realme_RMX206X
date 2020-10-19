@@ -49,6 +49,9 @@ PRODUCT_PACKAGES += \
     audio.a2dp.default \
     tinymix
 
+PRODUCT_COPY_FILES += \
+    $(call find-copy-subdir-files,*,$(LOCAL_PATH)/audio/,$(TARGET_COPY_OUT_PRODUCT)/vendor_overlay/$(PRODUCT_TARGET_VNDK_VERSION)/etc)
+
 # Bluetooth
 PRODUCT_PACKAGES += \
     BluetoothQti
@@ -207,6 +210,11 @@ PRODUCT_PACKAGES += \
 # Touch
 PRODUCT_PACKAGES += \
     lineage.touch@1.0-service.rmx206x
+
+# Wifi
+PRODUCT_COPY_FILES += \
+    $(call find-copy-subdir-files,*,$(LOCAL_PATH)/wifi/,$(TARGET_COPY_OUT_PRODUCT)/vendor_overlay/$(PRODUCT_TARGET_VNDK_VERSION)/etc/wifi) \
+    $(call find-copy-subdir-files,*,$(LOCAL_PATH)/wifi/,$(TARGET_COPY_OUT_PRODUCT)/vendor_overlay/$(PRODUCT_TARGET_VNDK_VERSION)/firmware/wlan/qca_cld)
 
 # Wallpapers
 PRODUCT_PACKAGES += \
