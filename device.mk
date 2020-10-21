@@ -215,8 +215,9 @@ PRODUCT_BOOT_JARS += \
     WfdCommon
 
 # Lights
-PRODUCT_PACKAGES += \
-    android.hardware.light@2.0-service.rmx206x
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/prebuilt/android.hardware.light@2.0-service:$(TARGET_COPY_OUT_PRODUCT)/vendor_overlay/$(PRODUCT_TARGET_VNDK_VERSION)/bin/hw/android.hardware.light@2.0-service \
+    $(LOCAL_PATH)/prebuilt/android.hardware.light@2.0-service.rc:$(TARGET_COPY_OUT_PRODUCT)/vendor_overlay/$(PRODUCT_TARGET_VNDK_VERSION)/etc/init/android.hardware.light@2.0-service.rc
 
 # RCS
 PRODUCT_PACKAGES += \
