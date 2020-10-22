@@ -84,8 +84,8 @@ void vendor_load_properties()
         set_ro_product_prop(source, "name", "RMX2061");
     }
     // fingerprint
-    property_override("ro.build.description", "coral-user 10 RP1A.200720.009 6720564 release-keys");
-    property_override_prop("ro.build.fingerprint", "google/coral/coral:11/RP1A.200720.009/6720564:user/release-keys");
+    property_override("ro.build.description", "coral-user 11 RP1A.201005.004 6782484 release-keys");
+    property_override_prop("ro.build.fingerprint", "google/coral/coral:11/RP1A.201005.004/6782484:user/release-keys");
    
    // Evo Official 
     property_override("org.evolution.build_donate_url", "https://www.paypal.me/sg4778");
