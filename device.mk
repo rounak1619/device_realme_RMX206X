@@ -102,10 +102,11 @@ PRODUCT_PACKAGES += \
 
 # fstab
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/rootdir/etc/fstab.default:$(TARGET_COPY_OUT_RAMDISK)/fstab.default \
-    $(LOCAL_PATH)/rootdir/etc/fstab.emmc:$(TARGET_COPY_OUT_RAMDISK)/fstab.emmc \
-    $(LOCAL_PATH)/rootdir/etc/oplus.fstab:$(TARGET_COPY_OUT_RAMDISK)/oplus.fstab \
     $(LOCAL_PATH)/rootdir/etc/fstab.qcom:system/etc/fstab.default
+
+# Ramdisk
+PRODUCT_COPY_FILES += \
+    $(call find-copy-subdir-files,*,$(LOCAL_PATH)/ramdisk/,$(TARGET_COPY_OUT_RAMDISK))
 
 # Fingerprint
 PRODUCT_PACKAGES += \
