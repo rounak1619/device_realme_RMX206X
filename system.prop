@@ -74,6 +74,12 @@ ro.sf.blurs_are_expensive=1
 # Fingerprint
 ro.boot.realme.lockstate=0
 
+# Gboard
+ro.com.google.ime.kb_pad_port_l=7
+ro.com.google.ime.kb_pad_port_r=7
+ro.com.google.ime.kb_pad_land_l=14
+ro.com.google.ime.kb_pad_land_r=14
+
 # Graphics
 debug.sf.enable_hwc_vds=1
 dev.pm.dyn_samplingrate=1
