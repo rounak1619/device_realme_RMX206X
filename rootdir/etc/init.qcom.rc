@@ -1,25 +1,13 @@
 import /system/etc/init/init.safailnet.rc
 
 on init
-    mount none /system/etc/fstab.qcom /vendor/etc/fstab.qcom bind
+    mount none /system/etc/fstab.default /vendor/etc/fstab.default bind
 
 on post-fs-data
     #Hack until we build the vendor
-    mount none /dev/null /vendor/lib/hw/lights.sm6150.so bind
-    mount none /dev/null /vendor/lib/hw/android.hardware.light@2.0-impl.so bind
-    mount none /dev/null /vendor/lib64/hw/lights.sm6150.so bind
-    mount none /dev/null /vendor/lib64/hw/android.hardware.light@2.0-impl.so bind
+    mount none /dev/null /vendor/lib/hw/lights.atoll.so bind
+    mount none /dev/null /vendor/lib64/hw/lights.atoll.so bind
     mount none /vendor/lost+found /vendor/overlay bind
-    mount none /system/lib/hw/android.hardware.sensors@1.0-impl.rmx206x.so /vendor/lib/hw/android.hardware.sensors@1.0-impl.so bind
-    mount none /system/lib64/hw/android.hardware.sensors@1.0-impl.rmx206x.so /vendor/lib64/hw/android.hardware.sensors@1.0-impl.so bind
-
-service vendor.imsdatadaemon /vendor/bin/imsdatadaemon
-    override
-    class main
-    user radio
-    socket ims_datad stream 0660 system radio
-    group radio wifi inet vendor_qti_diag log
-    disabled
 
 on property:init.svc.face_hal=restarting
     stop face_hal

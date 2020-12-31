@@ -16,8 +16,7 @@ $(call inherit-product, vendor/realme/RMX206X/RMX206X-vendor.mk)
 
 PRODUCT_BUILD_SUPER_PARTITION := false
 PRODUCT_SHIPPING_API_LEVEL := 29
-PRODUCT_TARGET_VNDK_VERSION := 29
-PRODUCT_EXTRA_VNDK_VERSIONS := 29
+PRODUCT_TARGET_VNDK_VERSION := 30
 PRODUCT_USE_DYNAMIC_PARTITIONS := true
 PRODUCT_COMPATIBLE_PROPERTY_OVERRIDE := true
 
@@ -36,6 +35,7 @@ PRODUCT_DEFAULT_PROPERTY_OVERRIDES += ro.surface_flinger.use_color_management=tr
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += ro.surface_flinger.has_wide_color_display=true
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += ro.surface_flinger.has_HDR_display=true
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += ro.surface_flinger.max_frame_buffer_acquired_buffers=3
+PRODUCT_DEFAULT_PROPERTY_OVERRIDES += ro.surface_flinger.wcg_composition_dataspace=143261696
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += ro.surface_flinger.set_idle_timer_ms=80
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += ro.surface_flinger.set_touch_timer_ms=200
 PRODUCT_DEFAULT_PROPERTY_OVERRIDES += ro.surface_flinger.set_display_power_timer_ms=1000
@@ -49,10 +49,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
     persist.sys.sf.color_saturation=1.0 \
     persist.sys.sf.native_mode=2 \
     persist.sys.sf.color_mode=9
-
-# Properties
--include $(LOCAL_PATH)/vendor_props.mk
--include $(LOCAL_PATH)/product_prop.mk
 
 # Screen density
 PRODUCT_AAPT_CONFIG := normal
@@ -106,8 +102,10 @@ PRODUCT_PACKAGES += \
 
 # fstab
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/rootdir/etc/fstab.qcom:$(TARGET_COPY_OUT_RAMDISK)/fstab.qcom \
-    $(LOCAL_PATH)/rootdir/etc/fstab.qcom:system/etc/fstab.qcom
+    $(LOCAL_PATH)/rootdir/etc/fstab.default:$(TARGET_COPY_OUT_RAMDISK)/fstab.default \
+    $(LOCAL_PATH)/rootdir/etc/fstab.emmc:$(TARGET_COPY_OUT_RAMDISK)/fstab.emmc \
+    $(LOCAL_PATH)/rootdir/etc/oplus.fstab:$(TARGET_COPY_OUT_RAMDISK)/oplus.fstab \
+    $(LOCAL_PATH)/rootdir/etc/fstab.qcom:system/etc/fstab.default
 
 # Fingerprint
 PRODUCT_PACKAGES += \
@@ -138,11 +136,8 @@ PRODUCT_COPY_FILES += \
 
 # HotwordEnrollement app permissions
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/privapp-permissions-hotword.xml:system/etc/permissions/privapp-permissions-hotword.xml
-
-# TEMP-HOSTPAD
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/hostapd:$(TARGET_COPY_OUT_PRODUCT)/vendor_overlay/$(PRODUCT_TARGET_VNDK_VERSION)/bin/hw/hostapd
+    $(LOCAL_PATH)/configs/com.android.hotwordenrollment.common.util.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/permissions/com.android.hotwordenrollment.common.util.xml \
+    $(LOCAL_PATH)/configs/com.android.hotwordenrollment.okgoogle.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/permissions/com.android.hotwordenrollment.okgoogle.xml
 
 # IMS
 PRODUCT_PACKAGES += \
@@ -164,11 +159,6 @@ PRODUCT_PACKAGES += \
 # Net
 PRODUCT_PACKAGES += \
     netutils-wrapper-1.0
-
-# QTI
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/configs/qti_whitelist.xml:system/etc/sysconfig/qti_whitelist.xml \
-    $(LOCAL_PATH)/permissions/privapp-permissions-qti.xml:$(TARGET_COPY_OUT_PRODUCT)/etc/permissions/privapp-permissions-qti.xml
 
 # Seccomp policy
 PRODUCT_COPY_FILES += \
@@ -210,11 +200,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_BOOT_JARS += \
     WfdCommon
 
-# Lights
-PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/prebuilt/android.hardware.light@2.0-service:$(TARGET_COPY_OUT_PRODUCT)/vendor_overlay/$(PRODUCT_TARGET_VNDK_VERSION)/bin/hw/android.hardware.light@2.0-service \
-    $(LOCAL_PATH)/prebuilt/android.hardware.light@2.0-service.rc:$(TARGET_COPY_OUT_PRODUCT)/vendor_overlay/$(PRODUCT_TARGET_VNDK_VERSION)/etc/init/android.hardware.light@2.0-service.rc
-
 # RCS
 PRODUCT_PACKAGES += \
     com.android.ims.rcsmanager \
@@ -224,12 +209,3 @@ PRODUCT_PACKAGES += \
 # Touch
 PRODUCT_PACKAGES += \
     lineage.touch@1.0-service.rmx206x
-
-# Wifi
-PRODUCT_COPY_FILES += \
-    $(call find-copy-subdir-files,*,$(LOCAL_PATH)/wifi/,$(TARGET_COPY_OUT_PRODUCT)/vendor_overlay/$(PRODUCT_TARGET_VNDK_VERSION)/etc/wifi) \
-    $(call find-copy-subdir-files,*,$(LOCAL_PATH)/wifi/,$(TARGET_COPY_OUT_PRODUCT)/vendor_overlay/$(PRODUCT_TARGET_VNDK_VERSION)/firmware/wlan/qca_cld)
-
-# Wallpapers
-PRODUCT_PACKAGES += \
-    PixelLiveWallpaperPrebuilt
