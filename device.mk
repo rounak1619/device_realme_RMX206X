@@ -212,12 +212,6 @@ PRODUCT_PACKAGES += \
 PRODUCT_BOOT_JARS += \
     WfdCommon
 
-# RCS
-PRODUCT_PACKAGES += \
-    com.android.ims.rcsmanager \
-    PresencePolling \
-    RcsService
-
 # Touch
 PRODUCT_PACKAGES += \
     lineage.touch@1.0-service.rmx206x
