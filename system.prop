@@ -109,6 +109,7 @@ persist.vendor.ims.vt.enableadb=3
 
 # RIL
 DEVICE_PROVISIONED=1
+gsm.lte.ca.support=1
 persist.radio.hvolte.enable=1
 persist.vendor.radio.atfwd.start=true
 persist.vendor.radio.lte_vrte_ltd=1
@@ -122,7 +123,7 @@ persist.vendor.radio.process_sups_ind=1
 persist.vendor.radio.data_con_rprt=1
 persist.data.iwlan.enable=true
 persist.data.iwlan.rekey=4294967295
-ro.telephony.default_network=33,33
+ro.telephony.default_network=22,20
 telephony.lteOnCdmaDevice=1
 
 # Sensors
