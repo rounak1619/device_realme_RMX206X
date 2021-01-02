@@ -99,7 +99,8 @@ PRODUCT_PACKAGES += \
 
 # fstab
 PRODUCT_COPY_FILES += \
-    $(LOCAL_PATH)/rootdir/etc/fstab.qcom:system/etc/fstab.default
+    $(LOCAL_PATH)/rootdir/etc/fstab.default:system/etc/fstab.default \
+    $(LOCAL_PATH)/rootdir/etc/fstab.at.qcom:system/etc/fstab.at.qcom
 
 # Ramdisk
 PRODUCT_COPY_FILES += \
