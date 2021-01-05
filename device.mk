@@ -88,6 +88,9 @@ PRODUCT_PACKAGES += \
     libqdMetaData.system \
     libvulkan
 
+PRODUCT_COPY_FILES += \
+    $(LOCAL_PATH)/configs/svi_config_19720.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/svi_config_19720.xml
+
 # Doze
 PRODUCT_PACKAGES += \
     RealmeParts \
