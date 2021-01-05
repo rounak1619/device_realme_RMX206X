@@ -57,7 +57,7 @@ ro.vendor.display.ad=1
 ro.vendor.display.sensortype=2
 ro.vendor.display.svi=1
 vendor.display.svi.config=1
-vendor.display.svi.config_path=/my_product/vendor/etc/svi_config_19720.xml
+vendor.display.svi.config_path=/system/etc/svi_config_19720.xml
 
 # Sf
 debug.sf.use_phase_offsets_as_durations=1
@@ -100,12 +100,6 @@ persist.dbg.volte_avail_ovr=1
 persist.dbg.vt_avail_ovr=1
 persist.dbg.wfc_avail_ovr=1
 persist.rcs.supported=0
-persist.vendor.ims.disableQXDMLogs=0
-persist.vendor.ims.disableADBLogs=0
-persist.vendor.ims.disableDebugLogs=0
-persist.vendor.ims.disableIMSLogs=0
-persist.vendor.ims.rtp.enableqxdm=3
-persist.vendor.ims.vt.enableadb=3
 
 # RIL
 DEVICE_PROVISIONED=1
@@ -123,8 +117,11 @@ persist.vendor.radio.process_sups_ind=1
 persist.vendor.radio.data_con_rprt=1
 persist.data.iwlan.enable=true
 persist.data.iwlan.rekey=4294967295
-ro.telephony.default_network=22,20
+ro.telephony.default_network=22,22
 telephony.lteOnCdmaDevice=1
+persist.data.df.iwlan_mux=9
+rild.libpath=/vendor/lib64/libril-qc-hal-qmi.so
+persist.vendor.data.iwlan.enable=true
 
 # Sensors
 ro.qti.sensors.wu=false

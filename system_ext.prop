@@ -1,2 +1,8 @@
 # DPM
 persist.vendor.dpm.feature=11
+persist.vendor.radio.rat_on=combine
+persist.vendor.radio.poweron_opt=1
+persist.radio.hvolte.enable=1
+persist.vendor.radio.wait_for_pbm=1
+persist.vendor.enable.hans=true
+persist.vendor.enable.preload=true
