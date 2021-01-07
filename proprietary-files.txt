@@ -124,7 +124,8 @@ product/lib64/vendor.qti.hardware.fm@1.0.so
 product/lib/vendor.qti.hardware.fm@1.0.so
 
 # HotwordEnrollment
--priv-app/HotwordEnrollmentOKGoogleHEXAGON/HotwordEnrollmentOKGoogleHEXAGON.apk;PRESIGNED
+-product/priv-app/HotwordEnrollmentOKGoogleHEXAGON/HotwordEnrollmentOKGoogleHEXAGON.apk;PRESIGNED
+system_ext/framework/com.android.hotwordenrollment.common.util.jar
 
 # IMS - from raphael-user-11-RKQ1.200826.002-20.12.30-release-keys
 -system_ext/priv-app/ims/ims.apk|092e37a5bc0234637eee769507b56c146f6c79aa
