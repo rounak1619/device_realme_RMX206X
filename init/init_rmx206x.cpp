@@ -1,94 +1,64 @@
 /*
-   Copyright (c) 2014, The Linux Foundation. All rights reserved.
-   Redistribution and use in source and binary forms, with or without
-   modification, are permitted provided that the following conditions are
-   met:
-    * Redistributions of source code must retain the above copyright
-      notice, this list of conditions and the following disclaimer.
-    * Redistributions in binary form must reproduce the above
-      copyright notice, this list of conditions and the following
-      disclaimer in the documentation and/or other materials provided
-      with the distribution.
-    * Neither the name of The Linux Foundation nor the names of its
-      contributors may be used to endorse or promote products derived
-      from this software without specific prior written permission.
-   THIS SOFTWARE IS PROVIDED "AS IS" AND ANY EXPRESS OR IMPLIED
-   WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
-   MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NON-INFRINGEMENT
-   ARE DISCLAIMED.  IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS
-   BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR
-   CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF
-   SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR
-   BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY,
-   WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE
-   OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN
-   IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+ * Copyright (C) 2019 The LineageOS Project
+ *
+ * Licensed under the Apache License, Version 2.0 (the "License");
+ * you may not use this file except in compliance with the License.
+ * You may obtain a copy of the License at
+ *
+ *      http://www.apache.org/licenses/LICENSE-2.0
+ *
+ * Unless required by applicable law or agreed to in writing, software
+ * distributed under the License is distributed on an "AS IS" BASIS,
+ * WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+ * See the License for the specific language governing permissions and
+ * limitations under the License.
  */
 
-#include <vector>
-#include <string>
-#include <fstream>
-
+#include <android-base/logging.h>
+#include <android-base/properties.h>
 #define _REALLY_INCLUDE_SYS__SYSTEM_PROPERTIES_H_
 #include <sys/_system_properties.h>
-
-#include <android-base/properties.h>
-#include <android-base/logging.h>
+#include <sys/sysinfo.h>
 
 #include "property_service.h"
 #include "vendor_init.h"
 
-std::vector<std::string> ro_props_default_source_order = {
-    "",
-    "odm.",
-    "product.",
-    "system.",
-    "vendor.",
-};
-
-void property_override(char const prop[], char const value[], bool add = true)
-{
+void property_override(char const prop[], char const value[]) {
     prop_info *pi;
-    pi = (prop_info *)__system_property_find(prop);
+
+    pi = (prop_info*) __system_property_find(prop);
     if (pi)
         __system_property_update(pi, value, strlen(value));
-    else if (add)
+    else
         __system_property_add(prop, strlen(prop), value, strlen(value));
 }
 
-void property_override_prop(char const system_prop[], char const value[])
-{
-    property_override(system_prop, value);
+void property_override_multifp(char const buildfp[], char const systemfp[],
+        char const bootimagefp[], char const vendorfp[], char const value[]) {
+    property_override(buildfp, value);
+    property_override(systemfp, value);
+    property_override(bootimagefp, value);
+    property_override(vendorfp, value);
 }
 
-void vendor_load_properties()
-{
-    const auto set_ro_build_prop = [](const std::string &source,
-                                      const std::string &prop,
-                                      const std::string &value) {
-        auto prop_name = "ro." + source + "build." + prop;
-        property_override(prop_name.c_str(), value.c_str(), false);
-    };
-
-    const auto set_ro_product_prop = [](const std::string &source,
-                                        const std::string &prop,
-                                        const std::string &value) {
-        auto prop_name = "ro.product." + source + prop;
-        property_override(prop_name.c_str(), value.c_str(), false);
-    };
-
-    for (const auto &source : ro_props_default_source_order)
-    {
-        set_ro_product_prop(source, "device", "RMX2061L1");
-        set_ro_product_prop(source, "model", "RMX2061");
-        set_ro_product_prop(source, "name", "RMX2061");
-    }
-    // fingerprint
+void load_rmx206x() {
+    property_override("ro.product.name", "RMX2061");
+    property_override("ro.product.model", "RMX2061");
+    property_override("ro.product.system.model", "RMX2061");
+    property_override("ro.build.product", "RMX2061");
+    property_override("ro.product.device", "RMX2061L1");
     property_override("ro.build.description", "redfin-user 11 RQ1A.210105.003 7005429 release-keys");
-    property_override_prop("ro.build.fingerprint", "google/redfin/redfin:11/RQ1A.210105.003/7005429:user/release-keys");
-   
-   // Evo Official 
+}
+
+void vendor_load_properties() {
+
+    load_rmx206x();
+
     property_override("org.evolution.build_donate_url", "https://www.paypal.me/sg4778");
     property_override("org.evolution.build_maintainer", "Sukrut4778");
     property_override("org.evolution.build_support_url", "https://t.me/EvolutionXRMX206X");
+    property_override("ro.apex.updatable", "true");
+    property_override("ro.oem_unlock_supported", "0");
+    property_override_multifp("ro.build.fingerprint", "ro.system.build.fingerprint", "ro.bootimage.build.fingerprint",
+        "ro.vendor.build.fingerprint", "google/redfin/redfin:11/RQ1A.210105.003/7005429:user/release-keys");
 }
