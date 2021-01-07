@@ -52,7 +52,6 @@ ro.vendor.use_data_netmgrd=true
 
 # Display post-processing
 debug.sf.latch_unsignaled=1
-debug.sf.enable_gl_backpressure=1
 ro.vendor.display.ad=1
 ro.vendor.display.sensortype=2
 ro.vendor.display.svi=1
@@ -124,7 +123,6 @@ persist.data.iwlan.rekey=4294967295
 ro.telephony.default_network=22,22
 telephony.lteOnCdmaDevice=1
 persist.data.df.iwlan_mux=9
-rild.libpath=/vendor/lib64/libril-qc-hal-qmi.so
 persist.vendor.data.iwlan.enable=true
 
 # Sensors
