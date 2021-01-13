@@ -38,6 +38,26 @@ system                                                  /system                e
 system_ext                                              /system_ext            ext4    ro,barrier=1,discard                                 wait,avb=vbmeta_system,logical,first_stage_mount
 product                                                 /product               ext4    ro,barrier=1,discard                                 wait,avb=vbmeta_system,logical,first_stage_mount
 vendor                                                  /vendor                ext4    ro,barrier=1,discard                                 wait,avb=vbmeta_vendor,logical,first_stage_mount
+
+#ifdef OPLUS_FEATURE_STORAGE_MOUNT
+#Haoran.Zhang@PSW.TECH.Euclid.2221709, 2019/08/05, Modify for enable super partition
+odm                                                  /odm                   ext4    ro,barrier=1                                            wait,logical,first_stage_mount,avb_keys=/vendor/etc/oplus_avb.pubkey,nofail
+#other mount
+#todo
+my_product         /mnt/vendor/my_product   ext4       ro,barrier=1  wait,logical,first_stage_mount,avb_keys=/vendor/etc/oplus_avb.pubkey,nofail
+my_engineering     /mnt/vendor/my_engineering ext4     ro,barrier=1  wait,logical,first_stage_mount,avb_keys=/vendor/etc/oplus_avb.pubkey,nofail
+my_company         /mnt/vendor/my_company   ext4       ro,barrier=1  wait,logical,first_stage_mount,avb_keys=/vendor/etc/oplus_avb.pubkey,nofail
+my_carrier         /mnt/vendor/my_carrier  ext4    ro,barrier=1  wait,logical,first_stage_mount,avb_keys=/vendor/etc/oplus_avb.pubkey,nofail
+my_region          /mnt/vendor/my_region   ext4    ro,barrier=1  wait,logical,first_stage_mount,avb_keys=/vendor/etc/oplus_avb.pubkey,nofail
+my_manifest        /mnt/vendor/my_manifest  ext4    ro,barrier=1  wait,logical,first_stage_mount,avb_keys=/vendor/etc/oplus_avb.pubkey,nofail
+###
+/mnt/vendor/my_product    /my_product       none     ro,bind       wait,nofail,first_stage_mount,nofail
+/mnt/vendor/my_engineering /my_engineering  none     ro,bind       wait,nofail,first_stage_mount,nofail
+/mnt/vendor/my_company    /my_company       none     ro,bind       wait,nofail,first_stage_mount,nofail
+/mnt/vendor/my_carrier    /my_carrier     none     ro,bind       wait,nofail,first_stage_mount,nofail
+/mnt/vendor/my_region    /my_region       none     ro,bind       wait,nofail,first_stage_mount,nofail
+/mnt/vendor/my_manifest    /my_manifest       none     ro,bind       wait,nofail,first_stage_mount,nofail
+#endif
 #ifdef OPLUS_FEATURE_STORAGE
 #Xuefeng.Peng@ANDROID.STORAGE.0, 2020/06/02, Add for move cache mount before userdata and add check fs_mgr flag
 #/dev/block/bootdevice/by-name/cache                     /cache                 ext4    nosuid,noatime,nodev,barrier=1                       wait
@@ -46,7 +66,7 @@ vendor                                                  /vendor                e
 #endif
 /dev/block/by-name/metadata                             /metadata                ext4    noatime,nosuid,nodev,discard                         wait,formattable,wrappedkey,first_stage_mount
 # Add fs_mgr flag - sysfs_path=/sys/devices/platform/soc/xxxx.[ufshc|sdhci] to userdata entry, based on UFS|eMMC device.
-/dev/block/bootdevice/by-name/userdata                  /data                    f2fs    noatime,nosuid,nodev,discard,reserve_root=32768,resgid=1065,fsync_mode=nobarrier,inlinecrypt     latemount,wait,check,resize,formattable,fileencryption=ice,wrappedkey,quota,reservedsize=128M,checkpoint=fs
+/dev/block/bootdevice/by-name/userdata                  /data                    f2fs    noatime,nosuid,nodev,discard,reserve_root=32768,resgid=1065,fsync_mode=nobarrier,inlinecrypt     latemount,wait,check,resize,formattable,encryptable=ice,wrappedkey,quota,reservedsize=128M,checkpoint=fs
 #ifdef OPLUS_FEATURE_STORAGE
 #Xuefeng.Peng@ANDROID.STORAGE.0, 2020/06/02, Add for otg & sdcard1 disable adoptable
 #/devices/platform/soc/8804000.sdhci/mmc_host*           /storage/sdcard1         vfat    nosuid,nodev                                         wait,voldmanaged=sdcard1:auto,encryptable=footer
