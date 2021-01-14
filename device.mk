@@ -84,9 +84,11 @@ PRODUCT_PACKAGES += \
 # Display
 PRODUCT_PACKAGES += \
     libdisplayconfig \
+    libdisplayconfig.qti \
     libqdMetaData \
     libqdMetaData.system \
-    libvulkan
+    libvulkan \
+    vendor.display.config@2.0
 
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/configs/svi_config_19720.xml:$(TARGET_COPY_OUT_SYSTEM)/etc/svi_config_19720.xml
