@@ -57,6 +57,10 @@ ro.vendor.display.sensortype=2
 ro.vendor.display.svi=1
 vendor.display.svi.config=1
 vendor.display.svi.config_path=/system/etc/svi_config_19720.xml
+ro.surface_flinger.has_wide_color_display=true
+ro.surface_flinger.use_color_management=true
+ro.surface_flinger.has_HDR_display=true
+ro.surface_flinger.protected_contents=true 
 
 # Sf
 debug.sf.use_phase_offsets_as_durations=1
@@ -66,6 +70,7 @@ debug.sf.early.sf.duration=21000000
 debug.sf.early.app.duration=16500000
 debug.sf.earlyGl.sf.duration=13500000
 debug.sf.earlyGl.app.duration=21000000
+
 
 # Enable blurs
 ro.surface_flinger.supports_background_blur=1
