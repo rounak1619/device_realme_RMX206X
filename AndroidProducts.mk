@@ -18,6 +18,6 @@ PRODUCT_MAKEFILES := \
     $(LOCAL_DIR)/ssos_RMX206X.mk
 
 COMMON_LUNCH_CHOICES := \
-    ssos_aurora-user \
-    ssos_aurora-userdebug \
-    ssos_aurora-eng 
+    ssos_RMX206X-user \
+    ssos_RMX206X-userdebug \
+    ssos_RMX206X-eng 
