@@ -15,9 +15,9 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/ssos_RMX206X.mk
+    $(LOCAL_DIR)/aosp_RMX206X.mk
 
 COMMON_LUNCH_CHOICES := \
-    ssos_RMX206X-user \
-    ssos_RMX206X-userdebug \
-    ssos_RMX206X-eng 
+    aosp_RMX206X-user \
+    aosp_RMX206X-userdebug \
+    aosp_RMX206X-eng 
