@@ -47,7 +47,7 @@ void load_rmx206x() {
     property_override("ro.product.system.model", "RMX2061");
     property_override("ro.build.product", "RMX2061");
     property_override("ro.product.device", "RMX2061L1");
-    property_override("ro.build.description", "redfin-user 11 RQ1A.210105.003 7005429 release-keys");
+    property_override("ro.build.description", "redfin-user 11 RQ2A.210305.006 7119741 release-keys");
 }
 
 void vendor_load_properties() {
@@ -57,5 +57,5 @@ void vendor_load_properties() {
     property_override("ro.apex.updatable", "true");
     property_override("ro.oem_unlock_supported", "0");
     property_override_multifp("ro.build.fingerprint", "ro.system.build.fingerprint", "ro.bootimage.build.fingerprint",
-        "ro.vendor.build.fingerprint", "google/redfin/redfin:11/RQ1A.210105.003/7005429:user/release-keys");
+        "ro.vendor.build.fingerprint", "google/redfin/redfin:11/RQ2A.210305.006/7119741:user/release-keys");
 }
