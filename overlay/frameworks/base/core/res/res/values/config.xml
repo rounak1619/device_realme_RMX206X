@@ -174,11 +174,11 @@
                 <string ...>M -5,0 L -5,10 L 5,10 L 5,0 Z @dp</string>
          @see https://www.w3.org/TR/SVG/paths.html#PathData
          -->
-    <string name="config_mainBuiltInDisplayCutout">M -544,0 L -544,108 L -287,108 L -287,0 Z</string>
+    <string name="config_mainBuiltInDisplayCutout">M -544,0 L -544,108 L -270,108 L -270,0 Z</string>
 
     <!-- Height of the status bar -->
-    <dimen name="status_bar_height_portrait">36dp</dimen>
-    <dimen name="status_bar_height_landscape">32dp</dimen>
+    <dimen name="status_bar_height_portrait">44dp</dimen>
+    <dimen name="status_bar_height_landscape">28dp</dimen>
 
     <!-- Radius of the software rounded corners at the top of the display in its natural
         orientation. If zero, the value of rounded_corner_radius is used. -->
