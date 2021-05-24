@@ -161,6 +161,7 @@ TARGET_COPY_OUT_SYSTEM_EXT := system_ext
 TARGET_COPY_OUT_PRODUCT := product
 TARGET_COPY_OUT_VENDOR := vendor
 BUILD_WITHOUT_VENDOR := true
+TARGET_COPY_OUT_ODM := odm
 
 # Power
 TARGET_USES_INTERACTION_BOOST := true
@@ -213,3 +214,6 @@ BOARD_AVB_RECOVERY_ROLLBACK_INDEX_LOCATION := 2
 
 # Inherit from the proprietary version
 -include vendor/realme/RMX206X/BoardConfigVendor.mk
+
+# Inherit Prebuilt Vendor/ODM Images
+-include vendor/realme/RMX206X-vendor/BoardConfig.mk
