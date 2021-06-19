@@ -233,7 +233,3 @@ PRODUCT_PACKAGES += \
 
 PRODUCT_BOOT_JARS += \
     WfdCommon
-
-# Touch
-PRODUCT_PACKAGES += \
-    lineage.touch@1.0-service.rmx206x
