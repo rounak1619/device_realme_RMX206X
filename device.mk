@@ -14,6 +14,9 @@ $(call inherit-product, $(SRC_TARGET_DIR)/product/updatable_apex.mk)
 # Get non-open-source specific aspects
 $(call inherit-product, vendor/realme/RMX206X/RMX206X-vendor.mk)
 
+# Firmware
+$(call inherit-product, device/realme/RMX206X-fw/firmware.mk)
+
 PRODUCT_BUILD_SUPER_PARTITION := false
 PRODUCT_SHIPPING_API_LEVEL := 29
 PRODUCT_TARGET_VNDK_VERSION := 30
