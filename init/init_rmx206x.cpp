@@ -54,9 +54,6 @@ void vendor_load_properties() {
 
     load_rmx206x();
 
-    property_override("org.evolution.build_donate_url", "https://www.paypal.me/sg4778");
-    property_override("org.evolution.build_maintainer", "Sukrut4778");
-    property_override("org.evolution.build_support_url", "https://t.me/EvolutionXRMX206X");
     property_override("ro.apex.updatable", "true");
     property_override("ro.oem_unlock_supported", "0");
     property_override_multifp("ro.build.fingerprint", "ro.system.build.fingerprint", "ro.bootimage.build.fingerprint",
