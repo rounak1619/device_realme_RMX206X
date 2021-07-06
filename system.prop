@@ -58,15 +58,6 @@ ro.vendor.display.svi=1
 vendor.display.svi.config=1
 vendor.display.svi.config_path=/system/etc/svi_config_19720.xml
 
-# Sf
-debug.sf.use_phase_offsets_as_durations=1
-debug.sf.late.sf.duration=10500000
-debug.sf.late.app.duration=20500000
-debug.sf.early.sf.duration=21000000
-debug.sf.early.app.duration=16500000
-debug.sf.earlyGl.sf.duration=13500000
-debug.sf.earlyGl.app.duration=21000000
-
 # Enable blurs
 ro.surface_flinger.supports_background_blur=1
 ro.sf.blurs_are_expensive=1
@@ -136,3 +127,22 @@ ro.qti.sensors.wu=false
 
 # system props for time-services
 persist.timed.enable=true
+
+# Touch improvements
+touch.pressure.scale=0.001 
+persist.sys.ui.hw=1 
+touch.size.calibration=diameter 
+touch.size.scale=1 
+touch.size.bias=0 
+touch.size.isSummed=0 
+touch.pressure.scale=0.001 
+touch.orientation.calibration=none 
+touch.distance.calibration=none 
+touch.distance.scale=0 
+touch.coverage.calibration=box 
+touch.gestureMode=spots 
+MultitouchSettleInterval=1ms 
+MultitouchMinDistance=1px 
+TapInterval=1ms 
+TapSlop=1px
+
