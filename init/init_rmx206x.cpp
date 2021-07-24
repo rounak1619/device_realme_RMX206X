@@ -23,6 +23,8 @@
 #include "property_service.h"
 #include "vendor_init.h"
 
+#include <fstream>
+
 void property_override(char const prop[], char const value[]) {
     prop_info *pi;
 
@@ -41,21 +43,50 @@ void property_override_multifp(char const buildfp[], char const systemfp[],
     property_override(vendorfp, value);
 }
 
-void load_rmx206x() {
+void load_rmx2061() {
     property_override("ro.product.name", "RMX2061");
     property_override("ro.product.model", "RMX2061");
     property_override("ro.product.system.model", "RMX2061");
     property_override("ro.build.product", "RMX2061");
     property_override("ro.product.device", "RMX2061L1");
-    property_override("ro.build.description", "redfin-user 11 RQ3A.210605.005 7349499 release-keys");
+}
+
+void load_rmx2063() {
+    property_override("ro.product.name", "RMX2063");
+    property_override("ro.product.model", "RMX2063");
+    property_override("ro.product.system.model", "RMX2063");
+    property_override("ro.build.product", "RMX2063");
+    property_override("ro.product.device", "RMX2063L1");
+    
+    //NFC PROPS
+    property_override("persist.sys.nfc.disPowerSave", "1");
+    property_override("persist.sys.nfc.aid_overflow", "true");
+    property_override("persist.nfc.smartcard.recorder.enable", "true");
+}
+
+void set_var()
+{
+    // Check NFC
+    std::ifstream infile("/proc/oppo_nfc/chipset");
+    std::string check;
+    getline(infile, check);
+    if (!check.compare("NULL")) {
+    	load_rmx2061();
+    } else {
+    	load_rmx2063();
+    }
+
 }
 
 void vendor_load_properties() {
 
-    load_rmx206x();
+    set_var();
+
+    property_override("ro.build.description", "redfin-user 11 RQ3A.210605.005 7349499 release-keys");
+    property_override_multifp("ro.build.fingerprint", "ro.system.build.fingerprint", "ro.bootimage.build.fingerprint",
+        "ro.vendor.build.fingerprint", "google/redfin/redfin:11/RQ3A.210605.005/7349499:user/release-keys");
 
     property_override("ro.apex.updatable", "true");
     property_override("ro.oem_unlock_supported", "0");
-    property_override_multifp("ro.build.fingerprint", "ro.system.build.fingerprint", "ro.bootimage.build.fingerprint",
-        "ro.vendor.build.fingerprint", "google/redfin/redfin:11/RQ3A.210605.005/7349499:user/release-keys");
+
 }
