@@ -82,9 +82,9 @@ void vendor_load_properties() {
 
     set_var();
 
-    property_override("ro.build.description", "redfin-user 11 RQ3A.210605.005 7349499 release-keys");
+    property_override("ro.build.description", "redfin-user 11 RQ3A.210705.001 7380771 release-keys");
     property_override_multifp("ro.build.fingerprint", "ro.system.build.fingerprint", "ro.bootimage.build.fingerprint",
-        "ro.vendor.build.fingerprint", "google/redfin/redfin:11/RQ3A.210605.005/7349499:user/release-keys");
+        "ro.vendor.build.fingerprint", "google/redfin/redfin:11/RQ3A.210705.001/7380771:user/release-keys");
 
     property_override("ro.apex.updatable", "true");
     property_override("ro.oem_unlock_supported", "0");
