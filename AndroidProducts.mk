@@ -15,4 +15,4 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/evolution_RMX206X.mk
+    $(LOCAL_DIR)/ssos_RMX206X.mk
